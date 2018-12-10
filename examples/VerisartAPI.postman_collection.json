@@ -1,0 +1,144 @@
+{
+	"variables": [],
+	"info": {
+		"name": "VerisartAPI",
+		"_postman_id": "19cd1d06-c21d-8864-a802-1616702c4447",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"url": "http://localhost:8000/users/",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"bob@email.com\",\n\t\"name\": \"Bob Email\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Certificate",
+			"request": {
+				"url": "http://localhost:8000/certificates/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Owner-ID",
+						"value": "c961431faea38ed65bfd982cf2e31bd0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"A Test Certificate\",\n\t\"year\": 2018,\n\t\"note\": \"Postman API Test\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Certificates",
+			"request": {
+				"url": "http://localhost:8000/users/c961431faea38ed65bfd982cf2e31bd0/certificates/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Certificate (CertID: bf1407ea3bf08c7520f456b3d4eaa32e)",
+			"request": {
+				"url": "http://localhost:8000/certificates/bf1407ea3bf08c7520f456b3d4eaa32e/",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Owner-ID",
+						"value": "c961431faea38ed65bfd982cf2e31bd0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"bf1407ea3bf08c7520f456b3d4eaa32e\",\n\t\"title\":\"A Modified Test Certificate\",\n\t\"createdAt\":\"2018-12-10T18:44:43.194996087Z\",\n\t\"ownerId\":\"c961431faea38ed65bfd982cf2e31bd0\",\n\t\"year\":2018,\n\t\"note\":\"Postman API Test\",\n\t\"Transfer\":{\"email\":\"\"}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Certificate (CertID: bf1407ea3bf08c7520f456b3d4eaa32e)",
+			"request": {
+				"url": "http://localhost:8000/certificates/bf1407ea3bf08c7520f456b3d4eaa32e/",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Owner-ID",
+						"value": "c961431faea38ed65bfd982cf2e31bd0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer Certificate (CertID: bf1407ea3bf08c7520f456b3d4eaa32e)",
+			"request": {
+				"url": "http://localhost:8000/certificates/bf1407ea3bf08c7520f456b3d4eaa32e/transfers/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Owner-ID",
+						"value": "c961431faea38ed65bfd982cf2e31bd0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"notbob@email.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Accept Transfer",
+			"request": {
+				"url": "http://localhost:8000/certificates/bf1407ea3bf08c7520f456b3d4eaa32e/transfers/",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Owner-ID",
+						"value": "c961431faea38ed65bfd982cf2e31bd0",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Once accepted run \"List users\" to get the new user OwnerID and see that it now owns the certificate"
+			},
+			"response": []
+		},
+		{
+			"name": "List Users",
+			"request": {
+				"url": "http://localhost:8000/users/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
