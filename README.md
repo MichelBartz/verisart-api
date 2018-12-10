@@ -52,8 +52,8 @@ ok      verisart-api/internal   0.002s  coverage: 100.0% of statements
 ok      verisart-api/internal/models    0.002s  coverage: 100.0% of statements
 ```
 
-# API Tests / Exploring the API
+# Exploring the API
 
-A set of [Postman](https://www.getpostman.com/) tests are available in the `api_test` folder
+A set of [Postman](https://www.getpostman.com/) requests have been exported in the `examples/` folder.
 
 **If you change the `email` value when creating a user you will have to update the `X-Owner-ID` values in other tests/examples to reflect the new ID**
