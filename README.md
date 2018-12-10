@@ -12,6 +12,21 @@
 
 Simply run `docker-compose up` and the api will be available at `http://localhost:8000`
 
+# From Source
+
+If you want to run without Docker, make sure to install dependencies:
+
+```
+dep ensure
+go run main.go
+```
+
+Or alternatively to install locally (it will go in `$GOPATH/bin`):
+```
+dep ensure
+go install -v ./...
+```
+
 # Owner identification
 
 In order to identify the requesting users these endpoints will require an `X-Owner-ID` Header to be set, the endpoints in questions are:
